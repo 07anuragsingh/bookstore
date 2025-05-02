@@ -1,8 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
-
 class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
@@ -13,3 +10,20 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.email}"
+    
+class Profile(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    mobile = models.CharField(max_length=15)
+    address = models.TextField(max_length=150)
+    about = models.TextField(max_length=150)
+    def __str__(self):
+        return self.name

@@ -1,7 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
-from .models import Book
+from .models import Book, Contact, Profile
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
@@ -11,4 +9,19 @@ class BookAdmin(admin.ModelAdmin):
     list_editable = ('price', 'is_visible')
     date_hierarchy = 'published_date'
     ordering = ('-published_date',)
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'submitted_at')
+    search_fields = ('name', 'email', 'message')
+    date_hierarchy = 'submitted_at'
+    ordering = ('-submitted_at',)
+
+@admin.register(Profile)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'mobile', 'address', 'about')
+    search_fields = ('name', 'email', 'mobile')
+    
+    ordering = ('-name',)
+
 
