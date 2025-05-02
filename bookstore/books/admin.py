@@ -18,7 +18,7 @@ class ContactAdmin(admin.ModelAdmin):
     ordering = ('-submitted_at',)
 
 @admin.register(Profile)
-class ContactAdmin(admin.ModelAdmin):
+class ProfileAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'mobile', 'address', 'about')
     search_fields = ('name', 'email', 'mobile')
     

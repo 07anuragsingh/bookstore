@@ -35,11 +35,12 @@ class BookDetailView(DetailView):
 
 class MyProfile(ListView):
     model = Book
-    context_object_name = 'profile' # Assuming you have a Profile model
-    # You can change this to the actual model you want to display       
+    context_object_name = 'profiles' # Assuming you have a Profile model
+      
     template_name = 'books/my_profile.html'
+
     def get_queryset(self):
-        return Profile
+        return Profile.objects.filter(email='anuragsingh8434845379@gmail.com') # Assuming you want to filter by the logged-in user's email
 
 
 
