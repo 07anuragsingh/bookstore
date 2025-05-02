@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView, ListView, DetailView
 from django.shortcuts import redirect
-from .models import Book, Contact
+from .models import Book, Contact, Profile
 
 class HomeView(TemplateView):
     template_name = 'books/home.html'
@@ -33,11 +33,15 @@ class BookDetailView(DetailView):
     def get_queryset(self):
         return Book.objects.filter(is_visible=True)
 
-class MyProfile(TemplateView):
+class MyProfile(ListView):
+    model = Book
+    context_object_name = 'profile' # Assuming you have a Profile model
+    # You can change this to the actual model you want to display       
     template_name = 'books/my_profile.html'
-
     def get_queryset(self):
-        return MyProfile.objects.filter(is_visible=True)
+        return Profile
+
+
 
     
 
