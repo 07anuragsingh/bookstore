@@ -23,7 +23,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     mobile = models.CharField(max_length=15)
-    address = models.TextField(max_length=150)
+    address = models.TextField(max_length=150) 
     about = models.TextField(max_length=150)
     def __str__(self):
         return self.name
