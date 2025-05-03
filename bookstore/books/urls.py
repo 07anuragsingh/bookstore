@@ -8,5 +8,6 @@ urlpatterns = [
     path('books/', views.BookListView.as_view(), name='book_list'),
     path('book/<int:pk>/', views.BookDetailView.as_view(), name='book_detail'),
     path('profile/', views.MyProfile.as_view(), name='profile'),
+    path('form/', views.Form.as_view(), name='form'),  # URL for the form page
 
 ]
